@@ -1,6 +1,6 @@
 # `newtons_method`
 
-Calculates the root of a function using Newton's method.
+Calculates the root of a differentiable, univariate function using Newton's method.
 
 
 ## Syntax
