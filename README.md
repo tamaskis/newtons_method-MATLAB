@@ -38,7 +38,7 @@ Next, we enter <img src="https://latex.codecogs.com/svg.latex?f(x)" title="f(x)"
     f = @(x) x^2-1;
     df = @(x) 2*x;
     
-Since <img src="https://latex.codecogs.com/svg.latex?f(x)" title="f(x)" /> is a simple function, we can see, by inspection, that it will have two roots at <img src="https://latex.codecogs.com/svg.latex?x\pm1" title="x\pm1" />. Therefore, to find *both* roots using newton's method, we first use `newtons_method` with an initial guess <img src="https://latex.codecogs.com/svg.latex?x_{0}=-10" title="x_{0}=-10" />, and then use `newtons_method` a second time but with an initial guess <img src="https://latex.codecogs.com/svg.latex?x_{0}=10" title="x_{0}=10" />.
+Since <img src="https://latex.codecogs.com/svg.latex?f(x)" title="f(x)" /> is a simple function, we can see, by inspection, that it will have two roots at <img src="https://latex.codecogs.com/svg.latex?x\pm1" title="x\pm1" />. Therefore, to find *both* roots using Newton's method, we first use `newtons_method` with an initial guess <img src="https://latex.codecogs.com/svg.latex?x_{0}=-10" title="x_{0}=-10" />, and then use `newtons_method` a second time but with an initial guess <img src="https://latex.codecogs.com/svg.latex?x_{0}=10" title="x_{0}=10" />.
 
     % finds first root of f(x)=x^2-1 using Newton's method
     root1 = newtons_method(f,df,-10)
