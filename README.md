@@ -1,4 +1,4 @@
-# `newtons_method`
+# `newtons_method` [![View Newton's Method (newtons_method) on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/85735-newton-s-method-newtons_method)
 
 Calculates the root of a differentiable, univariate function using Newton's method.
 
