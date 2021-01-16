@@ -39,7 +39,9 @@
 % Tamas Kis
 
 % VERSION HISTORY:
-% v1.0.0.0: 15-Jan-2021, First version.
+% v1.0.0: 15-Jan-2021, First version.
+% v1.0.1: 15-Jan-2021, Updated documentation to include link to MATLAB File
+%                      Exchange page.
 
 
 
