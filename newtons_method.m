@@ -42,6 +42,8 @@
 % v1.0.0: 15-Jan-2021, First version.
 % v1.0.1: 15-Jan-2021, Updated external documentation to include link to 
 %                      MATLAB File Exchange page (this .m file unchanged).
+% v1.0.2: 15-Jan-2021, Updated external documentation, changed some
+%                      comments in this .m file.
 
 
 
@@ -66,16 +68,16 @@ function root = newtons_method(f,df,x0,TOL,imax)
         TOL = 1e-12;       
     end
     
+    % initializes the error so the loop will be entered
+    err = 2*TOL;
+    
     % preallocates x
     x = zeros(imax,1);
     
-    % initial error set to ensure that the while loop is entered
-    err = 2*TOL;
-    
-    % initial value for x
+    % inputs initial guess for root into x vector
     x(1) = x0;
 
-    % Newton's method method
+    % Newton's method
     i = 1;
     while (i < imax) && (err > TOL)
 
