@@ -2,9 +2,6 @@
 
 % Example for using the newtons_method function.
 
-% AUTHOR: Tamas Kis
-% LAST MODIFIED: January 15, 2021
-
 
 
 %% SCRIPT SETUP
