@@ -27,9 +27,12 @@
 %
 % See also fzero
 %
-% See https://github.com/tamaskis/newtons_method-MATLAB for additional 
-% documentation and examples. Examples can also be found in EXAMPLE.m 
-% (included with download).
+% MATLAB Central File Exchange: https://www.mathworks.com/matlabcentral/fileexchange/85735-newton-s-method-newtons_method
+% GitHub: https://github.com/tamaskis/compressible_flow_relations-MATLAB
+%
+% See "Newton's Method - MATLAB implementation" for additional
+% documentation. An example can be found in EXAMPLES_.m. Both of these
+% these files are included with the download.
 %
 % Copyright (c) 2021 Tamas Kis
 
