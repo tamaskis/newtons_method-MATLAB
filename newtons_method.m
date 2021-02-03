@@ -73,7 +73,7 @@ function root = newtons_method(f,df,x0,TOL,imax)
     while (i < imax) && (err > TOL)
 
         % updates estimate of root
-        x(i+1) = x(i) - f(x(i))/df(x(i));
+        x(i+1) = x(i)-f(x(i))/df(x(i));
         
         % calculates error
         err = abs(x(i+1)-x(i));
