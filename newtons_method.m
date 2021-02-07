@@ -36,9 +36,9 @@
 % MATLAB Central File Exchange: https://www.mathworks.com/matlabcentral/fileexchange/85735-newton-s-method-newtons_method
 % GitHub: https://github.com/tamaskis/newtons_method-MATLAB
 %
-% See "Newton's Method - MATLAB implementation" for additional
-% documentation. Examples can be found in EXAMPLES.m. Both of these files
-% are included with the download.
+% See "Newton's Method - MATLAB implementation.pdf" for additional
+% documentation and examples. Examples can also be found in EXAMPLES.m. 
+% Both of these files are included with the download.
 %
 % Copyright (c) 2021 Tamas Kis
 
@@ -98,7 +98,7 @@ function root = newtons_method(f,df,x0,TOL,imax,output)
 
         % Newton's method
         i = 1;
-        while (i < imax) && (err > TOL)
+        while (err > TOL) && (i < imax)
 
             % updates estimate of root
             x(i+1) = x(i)-f(x(i))/df(x(i));
@@ -124,7 +124,7 @@ function root = newtons_method(f,df,x0,TOL,imax,output)
 
         % Newton's method
         i = 1;
-        while (i < imax) && (err > TOL)
+        while (err > TOL) && (i < imax)
 
             % updates estimate of root
             x_new = x_old-f(x_old)/df(x_old);
