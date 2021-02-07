@@ -141,7 +141,7 @@ function root = newtons_method(f,df,x0,TOL,imax,output)
         end
 
         % returns root
-        root = x_new;
+        root = x_old;
       
     end
       
