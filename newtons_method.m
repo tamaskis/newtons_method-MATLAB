@@ -30,9 +30,9 @@
 %   f       - (function_handle) f(x)
 %   df      - (function_handle) derivative of f(x)
 %   x0      - (1×1) initial guess for root
-%  	TOL     - (OPTIONAL) (1×1) tolerance
-% 	imax	- (OPTIONAL) (1×1) maximum number of iterations
-%	output	- (OPTIONAL) (char) if specified as 'all', function will return
+%   TOL     - (OPTIONAL) (1×1) tolerance
+%   imax    - (OPTIONAL) (1×1) maximum number of iterations
+%   output  - (OPTIONAL) (char) if specified as 'all', function will return
 %             all intermediate root estimates; otherwise, a faster 
 %             algorithm is used to only return the converged root
 %
