@@ -9,10 +9,11 @@
 %   root = newtons_method(f,df,x0,TOL,imax)
 %   root = newtons_method(__,'all')
 %
-% See also fzero
+% See also fzero, bisection_method, secant_method.
 %
 % Copyright © 2021 Tamas Kis
-% Last Update: 2021-06-17
+% Contact: tamas.a.kis@outlook.com
+% Last Update: 2021-07-05
 %
 %--------------------------------------------------------------------------
 %
