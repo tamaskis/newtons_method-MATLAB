@@ -5,11 +5,11 @@ Calculates the root of a differentiable, univariate function using Newton's meth
 
 ## Syntax
 
-`root = newtons_method(f,df,x0)`\
-`root = newtons_method(f,df,x0,TOL)`\
-`root = newtons_method(f,df,x0,[],imax)`\
-`root = newtons_method(f,df,x0,TOL,imax)`\
-`root = newtons_method(__,'all')`
+`x = newtons_method(f,df,x0)`\
+`x = newtons_method(f,df,x0,TOL)`\
+`x = newtons_method(f,df,x0,[],imax)`\
+`x = newtons_method(f,df,x0,TOL,imax)`\
+`x = newtons_method(__,'all')`
 
 
 ## Input Parameters
@@ -23,6 +23,15 @@ Calculates the root of a differentiable, univariate function using Newton's meth
 | `imax` | <img src="https://latex.codecogs.com/svg.latex?\inline&space;i_{\mathrm{max}}" title="i_{\mathrm{max}}" /> | maximum number of iterations | `1×1 double` |
 
 ***NOTE:*** `TOL` and `imax` are optional inputs.
+
+
+## Output Parameters
+| Variable | Symbol | Description | Format |
+| --- | --- | --- | --- |
+| `x` | <img src="https://latex.codecogs.com/svg.latex?\inline&space;x" title="(x)" /> | root of <img src="https://latex.codecogs.com/svg.latex?\inline&space;f'(x)" title="f'(x)" /> | `1×1 or n×1` double |
+
+***NOTE:*** If `'all'` is specified at the end of the function call, then `x` will be a vector where the first element of this vector is the initial guess, all intermediate elements are the intermediate estimates of the root, and the last element is the converged root. Otherwise, `x` just stores the converged root.
+
 
 ## Description
 
