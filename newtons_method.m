@@ -25,9 +25,9 @@
 %
 %--------------------------------------------------------------------------
 %
-% -------
-% INPUTS:
-% -------
+% ------
+% INPUT:
+% ------
 %   f       - (function_handle) f(x)
 %   df      - (function_handle) derivative of f(x)
 %   x0      - (1×1) initial guess for root
@@ -37,9 +37,9 @@
 %             all intermediate root estimates; otherwise, a faster 
 %             algorithm is used to only return the converged root
 %
-% --------
-% OUTPUTS:
-% --------
+% -------
+% OUTPUT:
+% -------
 %   root    - (1×1 or n×1) root of f(x)
 %           	--> if "output" is specified as 'all', then "root" will be
 %                   a vector, where the first element is the initial guess,
