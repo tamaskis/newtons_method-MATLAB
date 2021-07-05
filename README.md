@@ -12,6 +12,12 @@ Calculates the root of a differentiable, univariate function using Newton's meth
 `root = newtons_method(__,'all')`
 
 
+## Input Parameters
+
+| Variable | Symbol | Description | Format |
+| --- | --- | --- | --- |
+| f | | <img src="https://latex.codecogs.com/svg.latex?\inline&space;f(x)" title="f(x)" /> | function | `function_handle` |
+
 ## Description
 
 `root = newtons_method(f,df,x0)` returns the root of a function <img src="https://latex.codecogs.com/svg.latex?\inline&space;f(x)" title="f(x)" /> specified by the function handle `f`, where `df` is the derivative of <img src="https://latex.codecogs.com/svg.latex?\inline&space;f(x)" title="f(x)" /> (i.e. <img src="https://latex.codecogs.com/svg.latex?\inline&space;f'(x)" title="f'(x)" />) and `x0` is an initial guess of the root. The default tolerance and maximum number of iterations are `TOL = 1e-12` and `imax = 1e6`, respectively.
