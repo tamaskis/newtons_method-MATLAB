@@ -18,6 +18,9 @@ Calculates the root of a differentiable, univariate function using Newton's meth
 | --- | --- | --- | --- |
 | `f` | <img src="https://latex.codecogs.com/svg.latex?\inline&space;f(x)" title="f(x)" /> | function to find root of | `function_handle` |
 | `df` | <img src="https://latex.codecogs.com/svg.latex?\inline&space;f'(x)" title="f'(x)" /> | derivative of <img src="https://latex.codecogs.com/svg.latex?\inline&space;f(x)" title="f(x)" /> | `function_handle` |
+| `x0` | <img src="https://latex.codecogs.com/svg.latex?\inline&space;x_{0}" title="x_{0}" /> | initial guess for root | `1×1 double` |
+| `TOL` | <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathrm{TOL}" title="\mathrm{TOL}" /> | tolerance | `1×1 double` |
+| `imax` | <img src="https://latex.codecogs.com/svg.latex?\inline&space;i_{\mathrm{max}}" title="i_{\mathrm{max}}" /> | maximum number of iterations | `1×1 double` |
 
 ## Description
 
