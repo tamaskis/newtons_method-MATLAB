@@ -22,6 +22,8 @@ Calculates the root of a differentiable, univariate function using Newton's meth
 | `TOL` | <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathrm{TOL}" title="\mathrm{TOL}" /> | tolerance | `1×1 double` |
 | `imax` | <img src="https://latex.codecogs.com/svg.latex?\inline&space;i_{\mathrm{max}}" title="i_{\mathrm{max}}" /> | maximum number of iterations | `1×1 double` |
 
+***NOTE:*** `TOL` and `imax` are optional inputs.
+
 ## Description
 
 `root = newtons_method(f,df,x0)` returns the root of a function <img src="https://latex.codecogs.com/svg.latex?\inline&space;f(x)" title="f(x)" /> specified by the function handle `f`, where `df` is the derivative of <img src="https://latex.codecogs.com/svg.latex?\inline&space;f(x)" title="f(x)" /> (i.e. <img src="https://latex.codecogs.com/svg.latex?\inline&space;f'(x)" title="f'(x)" />) and `x0` is an initial guess of the root. The default tolerance and maximum number of iterations are `TOL = 1e-12` and `imax = 1e6`, respectively.
