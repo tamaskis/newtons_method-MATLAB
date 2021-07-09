@@ -13,7 +13,7 @@
 %
 % Copyright © 2021 Tamas Kis
 % Contact: tamas.a.kis@outlook.com
-% Last Update: 2021-07-05
+% Last Update: 2021-07-09
 %
 %--------------------------------------------------------------------------
 %
@@ -64,7 +64,7 @@ function root = newtons_method(f,df,x0,TOL,imax,output)
     if nargin < 6
         return_all = false;
     else
-        if strcmp(output,'all')
+        if strcmpi(output,'all')
             return_all = true;
         else
             return_all = false;
@@ -112,7 +112,7 @@ function root = newtons_method(f,df,x0,TOL,imax,output)
         
         % initializes x_new so its scope isn't limited to the while loop
         x_new = 0;
-
+        
         % Newton's method
         i = 1;
         while (err > TOL) && (i < imax)
