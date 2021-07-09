@@ -5,11 +5,11 @@ Calculates the root of a differentiable, univariate function using Newton's meth
 
 ## Syntax
 
-`x = newtons_method(f,df,x0)`\
-`x = newtons_method(f,df,x0,TOL)`\
-`x = newtons_method(f,df,x0,[],imax)`\
-`x = newtons_method(f,df,x0,TOL,imax)`\
-`x = newtons_method(__,'all')`
+`root = newtons_method(f,df,x0)`\
+`root = newtons_method(f,df,x0,TOL)`\
+`root = newtons_method(f,df,x0,[],imax)`\
+`root = newtons_method(f,df,x0,TOL,imax)`\
+`root = newtons_method(__,'all')`
 
 
 ## Description
