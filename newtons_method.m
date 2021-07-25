@@ -13,9 +13,11 @@
 %
 % Copyright © 2021 Tamas Kis
 % Last Update: 2021-07-24
-%
 % Website: tamaskis.github.io
 % Contact: tamas.a.kis@outlook.com
+%
+% REFERENCES:
+%   [1] https://tamaskis.github.io/documentation/Newton's%20Method.pdf
 %
 %--------------------------------------------------------------------------
 %
