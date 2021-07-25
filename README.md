@@ -28,4 +28,4 @@ Calculates the root of a differentiable, univariate function using Newton's meth
 ## Examples and Additional Documentation
 
    -  See "EXAMPLES.mlx" or the "Examples" tab on the File Exchange page for examples. 
-   -  See "DOCUMENTATION.pdf" (included with download, also available at https://github.com/tamaskis/newtons_method-MATLAB/blob/main/DOCUMENTATION.pdf) for additional documentation.
+   -  See "Newton's Method.pdf" (included with download, also available at https://tamaskis.github.io/documentation/Newton's%20Method.pdf) for additional documentation.
