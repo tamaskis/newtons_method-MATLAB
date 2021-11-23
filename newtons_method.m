@@ -117,7 +117,7 @@ function root = newtons_method(f,df,x0,opts)
     
         % displays warning if maximum number of iterations reached
         if (i == imax) && warnings
-            warning(strcat('The method failed after ',num2str(imax),...
+            warning(strcat('The method failed after n=',num2str(imax),...
                 ' iterations.'));
         end
         
@@ -160,7 +160,7 @@ function root = newtons_method(f,df,x0,opts)
         
         % displays warning if maximum number of iterations reached
         if (i == imax) && warnings
-            warning(strcat('The method failed after ',num2str(imax),...
+            warning(strcat('The method failed after n=',num2str(imax),...
                 ' iterations.'));
         end
 
