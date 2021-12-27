@@ -9,7 +9,7 @@
 % See also fzero, bisection_method, secant_method, fixed_point_iteration.
 %
 % Copyright © 2021 Tamas Kis
-% Last Update: 2021-12-11
+% Last Update: 2021-12-27
 % Website: https://tamaskis.github.io
 % Contact: tamas.a.kis@outlook.com
 %
@@ -30,19 +30,20 @@
 %   df      - (1×1 function_handle) derivative of f(x)
 %   x0      - (1×1 double) initial guess for root
 %   opts    - (OPTIONAL) (1×1 struct) solver options
-%       • imax          - (1×1 double) maximimum number of iterations
-%       • return_all    - (1×1 logical) all intermediate root estimates are
-%                         returned if set to "true"; otherwise, a faster 
-%                         algorithm is used to return only the converged 
-%                         root
-%       • TOL           - (1×1 double) tolerance
-%       • warnings      - (1×1 logical) true if any warnings should be
-%                         displayed, false if not
+%       • imax       - (1×1 double) maximimum number of iterations 
+%                      (defaults to 1e6)
+%       • return_all - (1×1 logical) all intermediate root estimates are
+%                      returned if set to "true"; otherwise, a faster 
+%                      algorithm is used to return only the converged root
+%                      (defaults to false)
+%       • TOL        - (1×1 double) tolerance (defaults to 1e-12)
+%       • warnings   - (1×1 logical) true if any warnings should be 
+%                      displayed, false if not (defaults to true)
 %
 % -------
 % OUTPUT:
 % -------
-%   root    - (1×1 or n×1 double) root of f(x)
+%   root    - (1×1 double or 1D double array) root of f(x)
 %           	--> If "return_all" is specified as "true", then "root" 
 %                   will be a vector, where the first element is the 
 %                   initial guess, the last element is the converged root, 
