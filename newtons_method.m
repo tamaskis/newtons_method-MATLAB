@@ -116,12 +116,6 @@ function root = newtons_method(f,df,x0,opts)
             i = i+1;
 
         end
-    
-        % displays warning if maximum number of iterations reached
-        if (i == imax) && warnings
-            warning(strcat('The method failed after n=',num2str(imax),...
-                ' iterations.'));
-        end
         
         % returns converged root along with intermediate root estimates
         root = x(1:i);
@@ -160,15 +154,18 @@ function root = newtons_method(f,df,x0,opts)
 
         end
         
-        % displays warning if maximum number of iterations reached
-        if (i == imax) && warnings
-            warning(strcat('The method failed after n=',num2str(imax),...
-                ' iterations.'));
-        end
-
         % returns converged root
         root = x_new;
       
     end
-      
+
+    % ---------------------------------------------------------
+    % Displays warning if maximum number of iterations reached.
+    % ---------------------------------------------------------
+
+    if (i == imax) && warnings
+        warning(strcat('The method failed after i=',num2str(imax),...
+            ' iterations.'));
+    end
+    
 end
