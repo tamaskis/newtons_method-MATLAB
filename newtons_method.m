@@ -6,10 +6,11 @@
 %   root = newtons_method(f,df,x0)
 %   root = newtons_method(f,df,x0,opts)
 %
-% See also fzero, bisection_method, secant_method, fixed_point_iteration.
+% See also fzero, bisection_method, secant_method, fixed_point_iteration,
+% fsolve_newton.
 %
 % Copyright © 2021 Tamas Kis
-% Last Update: 2021-12-27
+% Last Update: 2022-01-02
 % Website: https://tamaskis.github.io
 % Contact: tamas.a.kis@outlook.com
 %
