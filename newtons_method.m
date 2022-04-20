@@ -1,172 +1,114 @@
 %==========================================================================
 %
-% newtons_method  Calculates the root of a differentiable, univariate, 
-% scalar-valued function using Newton's method.
+% newtons_method  Newton's method for finding the root of a differentiable,
+% univariate, scalar-valued function.
 %
-%   root = newtons_method(f,df,x0)
-%   root = newtons_method(f,df,x0,opts)
+%   x = newtons_method(f,df,x0)
+%   x = newtons_method(f,df,x0,opts)
+%   [x,k] = newtons_method(__)
+%   [x,k,x_all] = newtons_method(__)
 %
-% See also fzero, bisection_method, secant_method, fixed_point_iteration,
-% fsolve_newton.
+% See also fzero, bisection_method, secant_method.
 %
-% Copyright © 2021 Tamas Kis
-% Last Update: 2022-01-02
+% Copyright © 2022 Tamas Kis
+% Last Update: 2022-04-20
 % Website: https://tamaskis.github.io
 % Contact: tamas.a.kis@outlook.com
 %
 % TECHNICAL DOCUMENTATION:
-% https://tamaskis.github.io/documentation/Newton_s_Method.pdf
-%
-% REFERENCES:
-%   [1] Burden and Faires, "Numerical Analysis", 9th Ed. (pp. 67-78)
-%   [2] https://en.wikipedia.org/wiki/Newton%27s_method
+% https://tamaskis.github.io/documentation/Root_Finding_Methods.pdf
 %
 %--------------------------------------------------------------------------
 %
 % ------
 % INPUT:
 % ------
-%   f       - (1×1 function_handle) differentiable, univariate, 
-%             scalar-valued function f(x) (f:R->R)
-%   df      - (1×1 function_handle) derivative of f(x)
+%   f       - (1×1 function_handle) univariate, scalar-valued function, 
+%             f(x) (f : ℝ → ℝ)
+%   df      - (1×1 function_handle) derivative of f(x) (f' : ℝ → ℝ)
 %   x0      - (1×1 double) initial guess for root
-%   opts    - (OPTIONAL) (1×1 struct) solver options
-%       • imax       - (1×1 double) maximimum number of iterations 
-%                      (defaults to 1e6)
-%       • return_all - (1×1 logical) all intermediate root estimates are
-%                      returned if set to "true"; otherwise, a faster 
-%                      algorithm is used to return only the converged root
-%                      (defaults to false)
-%       • TOL        - (1×1 double) tolerance (defaults to 1e-12)
-%       • warnings   - (1×1 logical) true if any warnings should be 
-%                      displayed, false if not (defaults to true)
+%   opts    - (1×1 struct) (OPTIONAL) solver options
+%       • k_max      - (1×1 double) maximimum number of iterations 
+%                      (defaults to 200)
+%       • return_all - (1×1 logical) returns estimates at all iterations if
+%                      set to "true"
+%       • TOL        - (1×1 double) tolerance (defaults to 10⁻¹⁰)
 %
 % -------
 % OUTPUT:
 % -------
-%   root    - (1×1 double or 1D double array) root of f(x)
-%           	--> If "return_all" is specified as "true", then "root" 
-%                   will be a vector, where the first element is the 
-%                   initial guess, the last element is the converged root, 
-%                   and the other elements are intermediate estimates of 
-%                   the root.
-%               --> Otherwise, "root" is a single number storing the
-%                   converged root.
+%   x       - (1×1 double) root of f(x)
+%   k       - (1×1 double) number of solver iterations
+%   x_all   - (1×(k+1) double) root estimates at all iterations
 %
 %==========================================================================
-function root = newtons_method(f,df,x0,opts)
+function [x,k,x_all] = newtons_method(f,df,x0,opts)
     
     % ----------------------------------
     % Sets (or defaults) solver options.
     % ----------------------------------
     
-    % sets maximum number of iterations (defaults to 1e6)
-    if (nargin < 4) || isempty(opts) || ~isfield(opts,'imax')
-        imax = 1e6;
+    % sets maximum number of iterations (defaults to 200)
+    if (nargin < 4) || isempty(opts) || ~isfield(opts,'k_max')
+        k_max = 200;
     else
-        imax = opts.imax;
+        k_max = opts.k_max;
     end
     
-    % determines return value (defaults to only return converged root)
+    % determines if all intermediate estimates should be returned
     if (nargin < 4) || isempty(opts) || ~isfield(opts,'return_all')
         return_all = false;
     else
         return_all = opts.return_all;
     end
     
-    % sets tolerance (defaults to 1e-12)
+    % sets tolerance (defaults to 10⁻¹⁰)
     if (nargin < 4) || isempty(opts) || ~isfield(opts,'TOL')
-        TOL = 1e-12;
+        TOL = 1e-10;
     else
         TOL = opts.TOL;
     end
     
-    % determines if warnings should be displayed (defaults to true)
-    if (nargin < 4) || isempty(opts) || ~isfield(opts,'warnings')
-        warnings = true;
-    else
-        warnings = opts.warnings;
-    end
+    % ----------------
+    % Newton's method.
+    % ----------------
     
-    % -----------------------------------------------
-    % "Return all" implementation of Newton's method.
-    % -----------------------------------------------
+    % root estimate at first iteration
+    x_curr = x0;
     
+    % preallocates array
     if return_all
-        
-        % preallocates x
-        x = zeros(imax,1);
-
-        % inputs initial guess for root into x vector
-        x(1) = x0;
-
-        % initializes the error so the loop will be entered
-        err = 2*TOL;
-    
-        % Newton's method
-        i = 1;
-        while (err > TOL) && (i < imax)
-
-            % updates estimate of root
-            x(i+1) = x(i)-f(x(i))/df(x(i));
-
-            % calculates error
-            err = abs(x(i+1)-x(i));
-
-            % increments loop index
-            i = i+1;
-
-        end
-        
-        % returns converged root along with intermediate root estimates
-        root = x(1:i);
-
-    % -----------------------------------------
-    % "Fast" implementation of Newton's method.
-    % -----------------------------------------
-    
-    else
-        
-        % sets root estimate at the first iteration of Newton's method as 
-        % the initial guess
-        x_old = x0;
-        
-        % initializes x_new so its scope isn't limited to the while loop
-        x_new = 0;
-        
-        % initializes the error so the loop will be entered
-        err = 2*TOL;
-        
-        % Newton's method
-        i = 1;
-        while (err > TOL) && (i < imax)
-
-            % updates estimate of root
-            x_new = x_old-f(x_old)/df(x_old);
-
-            % calculates error
-            err = abs(x_new-x_old);
-
-            % stores current root estimate for next iteration
-            x_old = x_new;
-
-            % increments loop index
-            i = i+1;
-
-        end
-        
-        % returns converged root
-        root = x_new;
-      
+        x_all = zeros(1,k_max+1);
     end
-
-    % ---------------------------------------------------------
-    % Displays warning if maximum number of iterations reached.
-    % ---------------------------------------------------------
-
-    if (i == imax) && warnings
-        warning(strcat('The method failed after i=',num2str(imax),...
-            ' iterations.'));
+    
+    % Newton's method
+    for k = 1:k_max
+        
+        % stores results in arrays
+        if return_all
+            x_all(k) = x_curr;
+        end
+        
+        % updates root estimate
+        x_next = x_curr-f(x_curr)/df(x_curr);
+        
+        % terminates solver if converged
+        if (abs(x_next-x_curr) < TOL)
+            break;
+        end
+        
+        % stores updated root estimate for next iteration
+        x_curr = x_next;
+        
+    end
+    
+    % converged root
+    x = x_next;
+    
+    % stores converged result and trims array
+    if return_all
+        x_all(k+1) = x;
+        x_all = x_all(1:(k+1));
     end
     
 end
