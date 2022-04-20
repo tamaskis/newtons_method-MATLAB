@@ -6,7 +6,7 @@ Newton's method for finding the root of a differentiable, univariate, scalar-val
 ## Syntax
 
 `x = newtons_method(f,df,x0)`\
-`x = newtons_method(f,df,x0,opts)`
+`x = newtons_method(f,df,x0,opts)`\
 `[x,k] = newtons_method(__)`\
 `[x,k,x_all] = newtons_method(__)`
 
